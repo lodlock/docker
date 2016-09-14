@@ -35,6 +35,8 @@ DB_PASSWORD=weblate
 DB_USER=weblate
 DB_DATABASE=weblate
 DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_ARGS="--wait --connection-timeout=10 -N -s"
 
 # Mail server, the server has to listen on port 587 and understand TLS
 WEBLATE_EMAIL_HOST=smtp.gmail.com
