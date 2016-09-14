@@ -30,10 +30,11 @@ WEBLATE_REGISTRATION_OPEN=1
 #WEBLATE_ENABLE_HTTPS=1
 #WEBLATE_REQUIRE_LOGIN=1
 
-# PostgreSQL setup
-POSTGRES_PASSWORD=weblate
-POSTGRES_USER=weblate
-POSTGRES_DATABASE=weblate
+# DB setup
+DB_PASSWORD=weblate
+DB_USER=weblate
+DB_DATABASE=weblate
+DB_HOST=127.0.0.1
 
 # Mail server, the server has to listen on port 587 and understand TLS
 WEBLATE_EMAIL_HOST=smtp.gmail.com
