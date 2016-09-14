@@ -5,8 +5,10 @@ MAINTAINER Michal Čihař <michal@cihar.com>
 RUN useradd --shell /bin/sh --user-group weblate
 
 RUN env DEBIAN_FRONTEND=noninteractive apt-get update \
-  && apt-get install --no-install-recommends -y ssh curl python-virtualenv python-lxml python-pillow python-psycopg2 gettext postgresql-client \
+  && apt-get install --no-install-recommends -y ssh curl python-virtualenv python-lxml python-pillow python-mysqldb gettext mysql-server \
   && apt-get -y install -t jessie-backports mercurial git python-django-compressor git-svn \
+  && apt-get -y install -t python-requests-oauthlib python-six python-openid \
+  && apt-get -y install -t python-compressor \
   && apt-get -y upgrade \
   && apt-get clean
 
@@ -31,6 +33,6 @@ ENV START_CMD "/app/bin/django-admin"
 VOLUME ["/app/etc", "/app/data"]
 USER weblate
 
-EXPOSE 8000
+EXPOSE 80
 ENTRYPOINT ["/app/bin/start"]
-CMD ["runserver", "0.0.0.0:8000"]
+CMD ["runserver", "0.0.0.0:80"]
